@@ -6,5 +6,7 @@ public class Main {
 
        System.out.println(a.get(1));
         System.out.println(a.get(0));
+        a.delete(0);
+        System.out.println(a.get(0));
     }
 }

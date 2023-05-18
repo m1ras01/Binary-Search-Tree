@@ -57,6 +57,28 @@ public class BST<K extends Comparable<K>,V> {
         }
     }
 
+    public void delete(K key){
+        root = delete(root,key);
+    }
+    private Node delete(Node node,K key){
+        if(node == null) return null;
+        int cmp = key.compareTo(node.key);
+        if(cmp > 0) {node.right = delete(node.right,key);}
+        else if (cmp < 0) { node.left = delete(node.left,key);}
+        else{
+            if(node.left == null) return node.right;
+            if(node.right == null) return node.left;
+            Node temp = node;
+            node = min(node.right);
+            node.right = deleteMin(temp.right);
+            node.left = temp.left;
+            }
+        node.size = 1+ size(node.left)+size(node.right);
+        return node;
+    }
+
+
+
     public int size(){
         return size(root);
     }
