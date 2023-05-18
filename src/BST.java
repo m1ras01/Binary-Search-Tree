@@ -77,6 +77,16 @@ public class BST<K extends Comparable<K>,V> {
         return node;
     }
 
+    public void inOrder(){
+        inOrder(root);
+    }
+    public void inOrder(Node node){
+        if(node == null) return;
+        inOrder(node.left);
+        System.out.println("Key: "+node.key+" Value: "+node.value);
+        inOrder(node.right);
+    }
+
 
 
     public int size(){
