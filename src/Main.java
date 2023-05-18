@@ -20,5 +20,10 @@ public class Main {
 
         a.inOrder();
         System.out.println(a.get(0));
+
+
+        while (a.iterator().hasNext()){
+            System.out.println(a.iterator().next());
+        }
     }
 }
