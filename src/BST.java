@@ -16,7 +16,7 @@ public class BST<K extends Comparable<K>,V> {
         root = null;
     }
     public void put(K key,V value){
-        if(key == null && value == null) {
+        if(key == null || value == null) {
             return;
         }
         root = put(root,key , value);
@@ -33,7 +33,37 @@ public class BST<K extends Comparable<K>,V> {
         else{
             node.value = value;
         }
-        node.size = 1 + node.right.size + node.left.size;
+        node.size = 1 + size(node.right) + size(node.left);
         return node;
     }
+
+    public V get(K key){
+        Node node = get(root,key);
+        if(node == null) return null;
+        return node.value;
+    }
+    private Node get(Node node,K key){
+        if(node == null) {
+            return null;
+        }
+        int cmp = key.compareTo(node.key);
+        if(cmp > 0){
+            return get(node.right,key);
+        } else if (cmp<0) {
+            return get(node.left,key);
+        }
+        else{
+            return node;
+        }
+    }
+    /*public int size(){
+        return size(root);
+    }
+    private int size(Node node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return node.size;
+        }
+    }*/
 }
