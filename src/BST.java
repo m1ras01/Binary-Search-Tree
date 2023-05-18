@@ -78,5 +78,8 @@ public class BST<K extends Comparable<K>,V> {
         node.size = 1+ size(node.left)+ size(node.right);
         return node;
     }
-
+    private Node min(Node node){
+        if(node.left == null) return node;
+        return min(node.left);
+    }
 }
