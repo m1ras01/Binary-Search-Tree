@@ -56,7 +56,7 @@ public class BST<K extends Comparable<K>,V> {
             return node;
         }
     }
-    /*public int size(){
+    public int size(){
         return size(root);
     }
     private int size(Node node) {
@@ -65,5 +65,5 @@ public class BST<K extends Comparable<K>,V> {
         } else {
             return node.size;
         }
-    }*/
+    }
 }
