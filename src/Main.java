@@ -13,17 +13,21 @@ public class Main {
         a.put(10, "ten");
         a.put(10, "shantaram");
 
-       System.out.println(a.get(1));
-        System.out.println(a.get(0));
-     //   a.delete(0);
-        System.out.println(a.get(0));
+        System.out.println(a.get(1)); //output: "one"
+        a.delete(1);
+        System.out.println(a.get(1));// output: "null"
+
+        System.out.println(a.get(0)); // output: "null"
+        a.put(0,"nft");
+        System.out.println(a.get(0)); // output: " nft"
+
+        System.out.println();
 
         a.inOrder();
-        System.out.println(a.get(0));
 
 
-        while (a.iterator().hasNext()){
-            System.out.println(a.iterator().next());
-        }
+
+
+
     }
 }
