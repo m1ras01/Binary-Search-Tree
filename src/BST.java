@@ -98,6 +98,39 @@ public class BST<K extends Comparable<K>,V> {
         inOrder(node.right);
     }
 
+    public void preOrder(){
+        preOrder(root);
+    }
+    private void preOrder(Node node){
+        if(node == null) return;
+        System.out.print(node.key+" ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    public void postOrder(){
+        postOrder(root);
+    }
+    private void postOrder(Node node){
+        if (node == null) return;
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.key + " ");
+    }
+
+    public boolean consist(V value){
+        return consist(value,root);
+    }
+    private boolean consist(V value,Node node){
+
+        if (node==null) return false;
+        if (node.value.equals(value)) return true;
+
+        boolean left = consist(value, node.left);
+        boolean right = consist(value, node.right);
+
+        return left || right;
+    }
 
     public Iterator<K> iterator(){
         return new Iterator<>() {
